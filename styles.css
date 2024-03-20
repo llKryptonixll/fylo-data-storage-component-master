@@ -1,0 +1,207 @@
+:root {
+    --gradient1: hsl(6, 100%, 80%);
+    --gradient2: hsl(335, 100%, 65%);
+    --pale_blue: hsl(243, 100%, 93%);
+    --grayish_blue: hsl(229, 7%, 55%);
+    --dark_blue: hsl(228, 56%, 26%);
+    --very_dark_blue: hsl(229, 57%, 11%);
+    --base_font_size: 14px;
+    --main_font_family: "Raleway", sans-serif;
+}
+
+/* css reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-size: var(--base_font_size);
+    font-family: var(--main_font_family);
+    background-color: gray;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+button {
+    font: inherit;
+    background-color: unset;
+    border: unset;
+    cursor: pointer;
+}
+
+p,
+h1 {
+    overflow-wrap: break-word;
+}
+
+/* main styling */
+main {
+    background-color: var(--very_dark_blue);
+    min-height: 100vh;
+    background-image: url("images/bg-desktop.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: bottom;
+    display: grid;
+    place-items: center;
+    padding: 6em 2em 6em 2em;
+}
+
+.page-wrapper {
+    display: flex;
+    gap: 2em;
+    max-width: 920px;
+    width: 100%;
+}
+
+.head-section,
+.storage-section {
+    background-color: var(--dark_blue);
+    padding: 2.5em;
+}
+
+.head-section {
+    flex-grow: 2;
+    min-height: 200px;
+    border-radius: 0.8em 6em 0.8em 0.8em;
+    display: grid;
+    gap: 2em;
+    align-content: center;
+}
+
+.head-section__btn-container {
+    display: flex;
+    gap: 1em;
+}
+
+.head-section__btn-container button {
+    background-color: var(--very_dark_blue);
+    min-height: 45px;
+    min-width: 45px;
+    border-radius: 0.5em;
+    display: grid;
+    place-items: center;
+}
+
+.storage-section {
+    display: grid;
+    flex-grow: 3;
+    min-height: 150px;
+    align-self: flex-end;
+    border-radius: 0.8em;
+    position: relative;
+}
+
+.storage-section__head-text {
+    color: var(--pale_blue);
+}
+
+.storage-section__head-text span {
+    font-weight: bold;
+}
+
+.progress {
+    width: 100%;
+    height: 20px;
+    background-color: var(--very_dark_blue);
+    border-radius: 2em;
+    display: flex;
+    padding: 3px;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 81.5%;
+    border-radius: 2em;
+    background-image: linear-gradient(to right, var(--gradient1), var(--gradient2));
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.progress-bar__dot {
+    background-color: var(--pale_blue);
+    width: 11px;
+    height: 11px;
+    margin-right: 3px;
+    border-radius: 50%;
+}
+
+.progress-minmax {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    color: var(--pale_blue);
+}
+
+.storage-section__left-storage {
+    margin-right: 3em;
+    position: absolute;
+    background-color: white;
+    color: black;
+    top: -50px;
+    right: 0;
+    width: 100%;
+    max-width: 180px;
+    max-height: 80px;
+    display: grid;
+    place-items: center;
+    border-radius: 0.8em 0.8em 0 0.8em;
+}
+
+.storage-section__left-storage::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(to top right, transparent 0%, transparent 50%, white 50%, white 100%);
+}
+
+.storage-section__left-storage p {
+    font-weight: bold;
+}
+
+.storage-section__left-storage p span:nth-child(1) {
+    font-size: 2.5rem;
+    color: var(--very_dark_blue);
+}
+
+.storage-section__left-storage p span:nth-child(2) {
+    color: var(--grayish_blue);
+}
+
+@media (max-width: 768px) {
+    main {
+        background-size: cover;
+        background-image: url("images/bg-mobile.png");
+    }
+
+    .page-wrapper {
+        flex-direction: column;
+    }
+
+    .storage-section {
+        align-self: stretch;
+    }
+
+    .storage-section__left-storage {
+        border-radius: 0.8em;
+        bottom: -35px;
+        top: unset;
+        margin-right: 0;
+        right: unset;
+        justify-self: center;
+    }
+
+    .storage-section__left-storage::after {
+        background: transparent;
+    }
+}
